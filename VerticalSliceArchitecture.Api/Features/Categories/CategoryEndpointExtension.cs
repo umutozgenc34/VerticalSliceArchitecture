@@ -1,9 +1,12 @@
-﻿namespace VerticalSliceArchitecture.Api.Features.Categories;
+﻿using VerticalSliceArchitecture.Api.Features.Categories.Commands.Create;
+
+namespace VerticalSliceArchitecture.Api.Features.Categories;
 
 public static class CategoryEndpointExtension
 {
     public static void AddCategoryGroupEndpointExtension(this WebApplication app)
     {
-        app.MapGroup("api/categories");
+        var group = app.MapGroup("api/categories"); 
+        group.CreateCategoryGroupItemEndpoint();
     }
 }
